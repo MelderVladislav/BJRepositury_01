@@ -52,10 +52,10 @@ namespace BlackJack
             cardMassiv.Add(new BJCard(Properties.Resources.king_of_hearts2, Properties.Resources.X9CDPAqV7UY, 4));
             cardMassiv.Add(new BJCard(Properties.Resources.king_of_spades2, Properties.Resources.X9CDPAqV7UY, 4));
 
-            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_clubs, Properties.Resources.X9CDPAqV7UY, 1));
-            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_diamonds, Properties.Resources.X9CDPAqV7UY,1));
-            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_hearts, Properties.Resources.X9CDPAqV7UY,1));
-            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_spades2, Properties.Resources.X9CDPAqV7UY, 1));
+            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_clubs, Properties.Resources.X9CDPAqV7UY, 11));
+            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_diamonds, Properties.Resources.X9CDPAqV7UY,11));
+            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_hearts, Properties.Resources.X9CDPAqV7UY,11));
+            cardMassiv.Add(new BJCard(Properties.Resources.ace_of_spades2, Properties.Resources.X9CDPAqV7UY, 11));
 
             Random ran = new Random();
             // var cardMassivFinal = cardMassiv.OrderBy(item => (new Random()).Next()).ToList();
