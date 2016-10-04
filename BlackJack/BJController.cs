@@ -265,7 +265,32 @@ namespace BlackJack
                 }
             }
 
-        
+            /*void Counting(ref string ResultMessage)
+    {
+    var overflow = PlayersMassiv.Where(item => item.PlayerCounter > 21).ToList();
+    var winners = PlayersMassiv.Where(item => item.PlayerCounter == 21).ToList();
+    var deciders = PlayersMassiv.Where(item => item.PlayerCounter < 21).ToList();
+    foreach (BJPlayer playnum in overflow)
+    {
+    ResultMessage += "\nID=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
+    playnum.Winnings--;
+    }
+    foreach (BJPlayer playnum in winners)
+    {
+    ResultMessage += "\nID=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
+    playnum.Winnings++;
+    }
+    foreach (BJPlayer playnum in deciders)
+    {
+    ResultMessage += "\nID=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
+    if (winners.Count() == 0)
+    {
+    var WinnerBeast = deciders.Last();
+    WinnerBeast.Winnings++;
+    ResultMessage += "Победил игрок " + WinnerBeast.Id + ". \nРезультаты: ";
+    }
+    }
+    }*/
     
             
             
