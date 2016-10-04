@@ -13,7 +13,7 @@ namespace BlackJack
         int _id=0;//ID, по дефолту будет ноль, не помню, зачем
         int _playerCounter; //Количество очков, исходя из расклада карт (текущего массива)
         int _winnings;//Количество побед игрока
-
+        int tempvar;
 
         public int PlayerCounter
         {
