@@ -15,7 +15,7 @@ namespace BlackJack
         int _winnings;//Количество побед игрока
         int tempvar;
         int tempvar2;
-
+        int termpvar3;
         public int PlayerCounter
         {
             get
