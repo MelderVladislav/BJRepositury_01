@@ -263,6 +263,7 @@ namespace BlackJack
                     }
                     Winner1.Winnings++;
                 }
+                return;
             }
 
             /*void Counting(ref string ResultMessage)
