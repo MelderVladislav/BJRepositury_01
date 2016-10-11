@@ -18,6 +18,7 @@ namespace BlackJack
         int termpvar3;
         int termvar9;
         int tempvar10;
+        int tempvar11111;
         public int PlayerCounter
         {
             get
