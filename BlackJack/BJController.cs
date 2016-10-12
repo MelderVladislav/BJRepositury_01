@@ -170,7 +170,7 @@ namespace BlackJack
                 string CommonResult = "";
                 foreach (BJPlayer pl in PlayersMassiv)
                 {
-                    CommonResult += "\nИгрок " + pl.Id + " одержал " + pl.Winnings + " побед.";
+                    CommonResult += "\nИгрок " + pl.Id + " получил " + pl.Winnings + " очков.";
                 }
                 MainForm.ResetAll(CommonResult);
             }
@@ -178,31 +178,31 @@ namespace BlackJack
             if (id > PlayersNumber)
             {
                 GameCounter++;
-                
-                
-                    MainForm.UpdateGamesCount(Convert.ToString(gameCounter));
-                    //Конец игры, подсчет очков
 
 
-                    foreach (BJPlayer pl in PlayersMassiv)
-                    {
-                        pl.ShowAllCards();
+                MainForm.UpdateGamesCount(Convert.ToString(gameCounter));
+                //Конец игры, подсчет очков
 
-                    }
-                    DefineResult(ref messageResult);
 
-                    //Уточнить, нет ли одинаковых очков
+                foreach (BJPlayer pl in PlayersMassiv)
+                {
+                    pl.ShowAllCards();
 
-                    MainForm.ShowMessage(messageResult);
-                    messageResult = "";
-                    NextTurn(1);
+                }
+                Counting(ref messageResult);
 
-                    ToNextRound();
-                
+                //Уточнить, нет ли одинаковых очков
+
+                MainForm.ShowMessage(messageResult);
+                messageResult = "";
+                NextTurn(1);
+
+                ToNextRound();
+
 
             }
 
-        }
+        }/*
         void DefineResult(ref string ResultMessage)
         {
 
@@ -217,107 +217,136 @@ namespace BlackJack
                 }
             }
             else
-            if (winners.Count == 1)
+                if (winners.Count == 1)
+                {
+                    ResultMessage += "Игрок " + winners.First().Id + " победил, набрав 21 очко! \nОбщие результаты: ";
+                    foreach (BJPlayer pl in PlayersMassiv)
+                    {
+
+                        ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
+                    }
+                    winners.First().Winnings++;
+                }
+                else
+                {
+                    var RemPlayers = PlayersMassiv.Where(item => item.PlayerCounter < 21).ToList();
+                    if (RemPlayers.Count == 0)
+                    {
+                        ResultMessage += "У всех игроков перебор! \nОбщие результаты: ";
+                        foreach (BJPlayer pl in PlayersMassiv)
+                        {
+
+                            ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
+                        }
+
+                    }
+                    var orderMassiv = PlayersMassiv.Where(item => item.PlayerCounter < 21).ToList();
+                    orderMassiv = orderMassiv.OrderBy(item => item.PlayerCounter).ToList();
+                    var Winner1 = orderMassiv.Last();
+                    var checkingMassiv = orderMassiv.Where(item => item.PlayerCounter == Winner1.PlayerCounter).ToList();
+                    if (checkingMassiv.Count > 1)
+                    {
+                        ResultMessage += "Ничья!" + " \nРезультаты: ";
+                        foreach (BJPlayer pl in PlayersMassiv)
+                        {
+
+                            ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
+                        }
+                    }
+                    else if (checkingMassiv.Count == 1)
+                    {
+                        ResultMessage += "Победил игрок " + Winner1.Id + ". \nРезультаты: ";
+                        foreach (BJPlayer pl in PlayersMassiv)
+                        {
+
+                            ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
+                        }
+                        Winner1.Winnings++;
+                    }
+                    return;
+                }*/
+        
+        void Counting(ref string ResultMessage)
+        {
+            var overflow = PlayersMassiv.Where(item => item.PlayerCounter > 21).ToList();
+            var winners = PlayersMassiv.Where(item => item.PlayerCounter == 21).ToList();
+            var deciders = PlayersMassiv.Where(item => item.PlayerCounter < 21).ToList();
+             if (deciders.Count == 2)
             {
-                ResultMessage += "Игрок " + winners.First().Id + " победил, набрав 21 очко! \nОбщие результаты: ";
-                foreach (BJPlayer pl in PlayersMassiv)
+            var onedecider = deciders.First();
+            var seconddecider = deciders.Last();
+                if (onedecider.PlayerCounter == seconddecider.PlayerCounter)
                 {
-
-                    ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
+                    ResultMessage += "Ничья, оба игрока набрали по " + onedecider.PlayerCounter + " очков";
                 }
-                winners.First().Winnings++;
+                else if (onedecider.PlayerCounter > seconddecider.PlayerCounter)
+                {
+                    ResultMessage += "Победил игрок " + onedecider.Id + ", набрав " + onedecider.PlayerCounter + " очков";
+                    onedecider.Winnings++;
+                }
+                else
+                {
+                    ResultMessage += "Победил игрок " + seconddecider.Id + ", набрав " + seconddecider.PlayerCounter + " очков";
+                    seconddecider.Winnings++;
+                }
             }
-            else
+            else if ((deciders.Count == 1) & (overflow.Count == 1))
             {
-                var RemPlayers = PlayersMassiv.Where(item => item.PlayerCounter < 21).ToList();
-                if (RemPlayers.Count == 0)
-                {
-                    ResultMessage += "У всех игроков перебор! \nОбщие результаты: ";
-                    foreach (BJPlayer pl in PlayersMassiv)
-                    {
-
-                        ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
-                    }
-
-                }
-                var orderMassiv = PlayersMassiv.Where(item => item.PlayerCounter < 21).ToList();
-                orderMassiv = orderMassiv.OrderBy(item => item.PlayerCounter).ToList();
-                var Winner1 = orderMassiv.Last();
-                var checkingMassiv = orderMassiv.Where(item => item.PlayerCounter == Winner1.PlayerCounter).ToList();
-                if (checkingMassiv.Count > 1)
-                {
-                    ResultMessage += "Ничья!" + " \nРезультаты: ";
-                    foreach (BJPlayer pl in PlayersMassiv)
-                    {
-
-                        ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
-                    }
-                }
-                else if (checkingMassiv.Count == 1)
-                {
-                    ResultMessage += "Победил игрок " + Winner1.Id + ". \nРезультаты: ";
-                    foreach (BJPlayer pl in PlayersMassiv)
-                    {
-
-                        ResultMessage += "\nID=" + pl.Id + ",очки=" + pl.PlayerCounter + ";  ";
-                    }
-                    Winner1.Winnings++;
-                }
-                return;
+                var onedecider = deciders.First();
+                ResultMessage += "Победил игрок " + onedecider.Id + ", набрав " + onedecider.PlayerCounter + " очков";
+                onedecider.Winnings++;
             }
-
-            /*void Counting(ref string ResultMessage)
-    {
-    var overflow = PlayersMassiv.Where(item => item.PlayerCounter > 21).ToList();
-    var winners = PlayersMassiv.Where(item => item.PlayerCounter == 21).ToList();
-    var deciders = PlayersMassiv.Where(item => item.PlayerCounter < 21).ToList();
-    foreach (BJPlayer playnum in overflow)
-    {
-    ResultMessage += "\nID=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
-    playnum.Winnings--;
-    }
-    foreach (BJPlayer playnum in winners)
-    {
-    ResultMessage += "\nID=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
-    playnum.Winnings++;
-    }
-    foreach (BJPlayer playnum in deciders)
-    {
-    ResultMessage += "\nID=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
-    if (winners.Count() == 0)
-    {
-    var WinnerBeast = deciders.Last();
-    WinnerBeast.Winnings++;
-    ResultMessage += "Победил игрок " + WinnerBeast.Id + ". \nРезультаты: ";
-    }
-    }
-    }*/
-            
-            
+            if (winners.Count > 1)
+                {
+                    ResultMessage += "Оба игрока победили, набрав 21 очко";
+                }
+                else if (winners.Count == 1)
+                {
+                    var winner = winners.First();
+                    ResultMessage += "Победил игрок " + winner.Id + " , набрав 21 очко";
+                }
+            if (overflow.Count>1)
+                {
+                    ResultMessage += "Оба игрока проиграли, совершив перебор";
+                }
+            foreach (BJPlayer playnum in deciders)
+            {
+                ResultMessage += "\nИгрок=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
                 
+            }
+            foreach (BJPlayer playnum in winners)
+            {
+                ResultMessage += "\nИгрок=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
+                playnum.Winnings++;
+            }
+            foreach (BJPlayer playnum in overflow)
+            {
+                ResultMessage += "\nИгрок=" + playnum.Id + ",очки=" + playnum.PlayerCounter + "; ";
+                playnum.Winnings--;
+            }
+            return;
         }
-
         public void CountAllScores()
         {
             MainPlayer.CountScores();
             Player2.CountScores();
 
             if (Player3 != null)
-            Player3.CountScores();
+                Player3.CountScores();
 
-            if (Player4!=null)
-            Player4.CountScores();
-            
+            if (Player4 != null)
+                Player4.CountScores();
+
 
         }
         public void ToNextRound()
         {
             CurrentDeck = BJMassiv.GetUsualCards();
-          
+
             foreach (BJPlayer player in PlayersMassiv)
             {
                 player.PlayerCounter = 0;
-                
+
                 foreach (BJCard crd in player.CurrentMassiv)
                 {
                     if (MainForm.Controls.Contains(crd))
@@ -328,6 +357,6 @@ namespace BlackJack
             }
 
         }
-        
+
     }
 }
