@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-  static  class BJMassiv
+  public  class BJMassiv
     {
         
        static public List<BJCard>  GetUsualCards()
         {
+            
             List<BJCard> cardMassiv = new List<BJCard>();
             cardMassiv.Add(new BJCard(Properties.Resources._6_of_clubs,Properties.Resources.X9CDPAqV7UY,6));
             cardMassiv.Add(new BJCard(Properties.Resources._6_of_diamonds, Properties.Resources.X9CDPAqV7UY, 6));

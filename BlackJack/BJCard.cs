@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace BlackJack
 {
-    class BJCard:PictureBox //Наследуем все свойства и события от класса Picturebox, чтобы добавить функциональность
+    public class BJCard:PictureBox //Наследуем все свойства и события от класса Picturebox, чтобы добавить функциональность
     {
         Image _frontImage, _backImage; //Первая переменная - ссылка на картинку с номиналом карты, вторая - с рубашкой
         int _cardValue; //Номинал карты
