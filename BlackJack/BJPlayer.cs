@@ -14,6 +14,7 @@ namespace BlackJack
         int _playerCounter; //Количество очков, исходя из расклада карт (текущего массива)
         int _winnings;//Количество побед игрока
         public int PlayerCounter
+        int dasd;
             int a1;
         {
             get
