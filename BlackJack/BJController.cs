@@ -11,8 +11,9 @@ namespace BlackJack
 
     class BJController
     {
+        int var2510;
         public delegate void UseIdDelegate(int id);//Делегат для событий, использующих ID
-
+       
         public event UseIdDelegate NextTurnEvent; //Событие, в которое передается ID следующего игрока (берется текущий ID, и прибавляется 1
         public event UseIdDelegate PlayerTakeCardEvent;
         Form1 MainForm;
@@ -88,6 +89,7 @@ namespace BlackJack
 
         public BJController(Form1 mainForm)
         {
+            
             GameCounter = 0;
             MainForm = mainForm;
             CurrentDeck = BJMassiv.GetUsualCards();
