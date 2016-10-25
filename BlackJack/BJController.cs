@@ -20,6 +20,7 @@ namespace BlackJack
         List<BJCard> _currentDeck;
         int _playersNumber, gameCounter;
         List<BJPlayer> _playersMassiv;
+        int a1;
 
         public List<BJCard> CurrentDeck
         {
