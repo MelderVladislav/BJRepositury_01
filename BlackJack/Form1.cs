@@ -62,5 +62,10 @@ namespace BlackJack
             this.Close();//Здесь окно игры закрывается 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello");
+        }
     }
 }
