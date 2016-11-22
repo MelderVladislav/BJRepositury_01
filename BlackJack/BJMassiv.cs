@@ -10,7 +10,7 @@ namespace BlackJack
   public  class  BJMassiv
     {
         
-       static public List<BJCard>  GetUsualCards()
+       public static  List<BJCard>  GetUsualCards()
         {
             
             List<BJCard> cardMassiv = new List<BJCard>();
