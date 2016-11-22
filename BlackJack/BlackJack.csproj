@@ -47,9 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BJCard.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="BJController.cs" />
     <Compile Include="BJMassiv.cs" />
     <Compile Include="BJPlayer.cs" />
@@ -212,6 +209,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\glossy-red-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{28a9cdee-8384-44dd-b146-400fe2c9f274}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

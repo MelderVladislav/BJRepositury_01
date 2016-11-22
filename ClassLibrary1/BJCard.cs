@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BlackJack
+namespace ClassLibrary1
 {
     public class BJCard:PictureBox //Наследуем все свойства и события от класса Picturebox, чтобы добавить функциональность
     {

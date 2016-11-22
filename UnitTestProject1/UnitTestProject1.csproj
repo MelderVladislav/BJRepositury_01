@@ -59,6 +59,10 @@
       <Project>{89aa57a6-ec2b-47df-ba9e-acc19ba3df87}</Project>
       <Name>BlackJack</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{28a9cdee-8384-44dd-b146-400fe2c9f274}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

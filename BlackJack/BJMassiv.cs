@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary1;
 
 namespace BlackJack
 {
-  public  class BJMassiv
+  public  class  BJMassiv
     {
         
        static public List<BJCard>  GetUsualCards()
@@ -67,6 +68,5 @@ namespace BlackJack
 
 
         }
-
     }
 }
