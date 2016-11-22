@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
+using ClassLibrary1;
 
 namespace BlackJack
 {
 
     class BJController
     {
-        int var2510;
         public delegate void UseIdDelegate(int id);//Делегат для событий, использующих ID
        
         public event UseIdDelegate NextTurnEvent; //Событие, в которое передается ID следующего игрока (берется текущий ID, и прибавляется 1
@@ -267,8 +267,7 @@ namespace BlackJack
                     }
                     return;
                 }*/
-        
-        void Counting(ref string ResultMessage)
+      void Counting(ref string ResultMessage)
         {
             var overflow = PlayersMassiv.Where(item => item.PlayerCounter > 21).ToList();
             var winners = PlayersMassiv.Where(item => item.PlayerCounter == 21).ToList();

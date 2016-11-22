@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary1;
 
 namespace BlackJack
 {
@@ -29,8 +30,6 @@ namespace BlackJack
         {
             MessageBox.Show(Message); //Эта функция выведет сообщение, которое будет передано в метод
         }
-       
-
         private void pictureBox1_Click(object sender, EventArgs e) //обработчик кнопки "Хватит" (красная)
         {
             Controller.NextTurn(2); //Метод NextTurn вызывает событие, принимающее идентификатор следующего игрока, в данном случае он равен 2, тк как этот обработчик способен вызвать только игрок-человек, а так как игроку-человеку мы назначаем ИД равный 1, то следующим будет виртуальный игрок и ИД равным 2
