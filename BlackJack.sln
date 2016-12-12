@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackJack", "BlackJack\BlackJack.csproj", "{89AA57A6-EC2B-47DF-BA9E-ACC19BA3DF87}"
-EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{FA39B0F9-DD05-4C78-8106-8B50CC730823}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{6DE7C620-8CDA-4343-901C-F1CCFF4DDED8}"
 EndProject
@@ -21,10 +19,6 @@ Global
 		{89AA57A6-EC2B-47DF-BA9E-ACC19BA3DF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89AA57A6-EC2B-47DF-BA9E-ACC19BA3DF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89AA57A6-EC2B-47DF-BA9E-ACC19BA3DF87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA39B0F9-DD05-4C78-8106-8B50CC730823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA39B0F9-DD05-4C78-8106-8B50CC730823}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA39B0F9-DD05-4C78-8106-8B50CC730823}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA39B0F9-DD05-4C78-8106-8B50CC730823}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DE7C620-8CDA-4343-901C-F1CCFF4DDED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DE7C620-8CDA-4343-901C-F1CCFF4DDED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DE7C620-8CDA-4343-901C-F1CCFF4DDED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
