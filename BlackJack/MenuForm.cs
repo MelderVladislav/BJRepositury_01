@@ -13,26 +13,29 @@ namespace BlackJack
     public partial class MenuForm : Form
     {
         Form1 form;
-        public MenuForm()
+        public string LogIn;
+        public MenuForm(string logIn)
         {
+            logIn = LogIn;
             InitializeComponent();
+            
         }
 
         private void TwoPlayersBtn_Click(object sender, EventArgs e)
         {
-            form = new Form1(2);
+            form = new Form1(2, LogIn);
             form.Show();
         }
 
         private void ThreePlayersBtn_Click(object sender, EventArgs e)
         {
-            form = new Form1(3);
+            form = new Form1(3, LogIn);
             form.Show();
         }
 
         private void FourPlayersBtn_Click(object sender, EventArgs e)
         {
-            form = new Form1(4);
+            form = new Form1(4, LogIn);
             form.Show();
         }
     }

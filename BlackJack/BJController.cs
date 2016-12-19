@@ -21,6 +21,19 @@ namespace BlackJack
         List<BJCard> _currentDeck;
         int _playersNumber, gameCounter;
         List<BJPlayer> _playersMassiv;
+        protected string playerLogin;
+        public string PlayerLogin
+        {
+            get
+            {
+                return playerLogin;
+            }
+
+            set
+            {
+                playerLogin = value;
+            }
+        }
 
         public List<BJCard> CurrentDeck
         {
@@ -86,8 +99,8 @@ namespace BlackJack
                 gameCounter = value;
             }
         }
-
-        public BJController(Form1 mainForm)
+        
+        public BJController(Form1 mainForm, string userLogin)
         {
             
             GameCounter = 0;
@@ -96,6 +109,7 @@ namespace BlackJack
             PlayersMassiv = new List<BJPlayer>();
             NextTurnEvent += EndGame;
             PlayerTakeCardEvent += TakeCardEvent;
+            PlayerLogin = userLogin;
 
         }
 

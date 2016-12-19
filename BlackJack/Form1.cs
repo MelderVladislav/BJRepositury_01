@@ -15,10 +15,10 @@ namespace BlackJack
     public partial class Form1 : Form
     {
         BJController Controller; //Подготовили ссылку для экземпляра класса с необходимыми методами
-        public Form1(int num)
+        public Form1(int num,string logIn)
         {
             InitializeComponent(); //это здесь по дефолту
-            Controller = new BJController(this);//присваиваем переменной значение экземпляра класса, и передаем в него экземпляр текущей формы (this - это текущий экземпляр Form1)
+            Controller = new BJController(this,logIn);//присваиваем переменной значение экземпляра класса, и передаем в него экземпляр текущей формы (this - это текущий экземпляр Form1)
             // конструктор этой формы принимает в себя целое число, и в зависимости от того, чему оно равно, мы и вводим нужное количество игроков
             if (num == 2) Controller.CreateTwoPlayers(); //методы можно посмотреть в классе BJController
             else if (num == 3) Controller.CreateThreePlayers();
