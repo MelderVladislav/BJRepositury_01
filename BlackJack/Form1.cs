@@ -14,19 +14,19 @@ namespace BlackJack
     
     public partial class Form1 : Form
     {
-        BjController Controller; //Подготовили ссылку для экземпляра класса с необходимыми методами
-        public Form1(int num)
+        BJController Controller; //Подготовили ссылку для экземпляра класса с необходимыми методами
+        public Form1(int num,string logIn)
         {
             InitializeComponent(); //это здесь по дефолту
-            Controller = new BjController(this);//присваиваем переменной значение экземпляра класса, и передаем в него экземпляр текущей формы (this - это текущий экземпляр Form1)
+            Controller = new BJController(this,logIn);//присваиваем переменной значение экземпляра класса, и передаем в него экземпляр текущей формы (this - это текущий экземпляр Form1)
             // конструктор этой формы принимает в себя целое число, и в зависимости от того, чему оно равно, мы и вводим нужное количество игроков
-            if (num == 2) Controller.CreateTwoPlayers(); //методы можно посмотреть в классе BjController
+            if (num == 2) Controller.CreateTwoPlayers(); //методы можно посмотреть в классе BJController
             else if (num == 3) Controller.CreateThreePlayers();
             else if (num==4) Controller.CreateFourPlayers();
             
 
         }
-        public void ShowMessage(string Message) //Этот метод пригодится, если понадобится вывести сообщение в текущей форме, из класса BjController это сделать напрямую проблематично
+        public void ShowMessage(string Message) //Этот метод пригодится, если понадобится вывести сообщение в текущей форме, из класса BJController это сделать напрямую проблематично
         {
             MessageBox.Show(Message); //Эта функция выведет сообщение, которое будет передано в метод
         }
@@ -58,7 +58,7 @@ namespace BlackJack
         {
            
             MessageBox.Show(message);//Здесь выводится финальное сообщение
-            Close();//Здесь окно игры закрывается 
+            this.Close();//Здесь окно игры закрывается 
 
         }
     }
