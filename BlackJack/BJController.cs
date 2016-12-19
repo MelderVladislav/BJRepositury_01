@@ -6,6 +6,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
 using ClassLibrary1;
+using BlackJack.BjServiceClient;
 
 namespace BlackJack
 {
@@ -167,7 +168,6 @@ namespace BlackJack
                 {
 
                     MainForm.Controls.Add(crd);
-
                 }
             }
         }
@@ -188,6 +188,9 @@ namespace BlackJack
                 {
                     CommonResult += "\nИгрок " + pl.Id + " получил " + pl.Winnings + " очков.";
                 }
+                BjContractClient addClient = new BjContractClient();
+                addClient.AddScore(playerLogin, MainPlayer.Winnings);
+                addClient.Close();
                 MainForm.ResetAll(CommonResult);
             }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BlackJack.BjServiceClient;
 
 namespace BlackJack
 {
@@ -16,7 +17,7 @@ namespace BlackJack
         public string LogIn;
         public MenuForm(string logIn)
         {
-            logIn = LogIn;
+            LogIn = logIn;
             InitializeComponent();
             
         }
@@ -37,6 +38,14 @@ namespace BlackJack
         {
             form = new Form1(4, LogIn);
             form.Show();
+        }
+
+        private void btngetresult_Click(object sender, EventArgs e)
+        {
+            BjContractClient getresult = new BjContractClient();
+            //MessageBox.Show(LogIn);
+            MessageBox.Show(getresult.GetScore(LogIn));
+            getresult.Close();
         }
     }
 }
